@@ -1,0 +1,9 @@
+package edu.pnu.service;
+
+import edu.pnu.domain.Reply;
+
+public interface ReplyService {
+	
+	Reply getReplys(Reply reply);
+
+}

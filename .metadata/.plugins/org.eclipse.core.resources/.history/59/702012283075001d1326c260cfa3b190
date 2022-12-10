@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body th:align="center">
+<h1>로그인</h1>
+<form th:action="login" method="post">
+
+</body>
+</html>

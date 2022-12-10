@@ -1,0 +1,103 @@
+package edu.pnu.service;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import edu.pnu.domain.Logs;
+import edu.pnu.domain.Members;
+import edu.pnu.repository.LogRepository;
+import edu.pnu.repository.MemberRepository;
+
+@Service
+public class MemberService {
+	
+	
+	private MemberRepository memRepo;
+	private LogRepository logRepo;
+	
+	@Autowired
+	public MemberService(MemberRepository memRepo, LogRepository logRepo) {
+		this.memRepo = memRepo;
+		this.logRepo = logRepo;
+	}
+
+	public List<Members> getMembers(){
+		try {
+			List<Members> list = memRepo.findAll();
+			logRepo.save(new Logs("Get", "getMembers()", true));
+			return list;
+		} catch(Exception e) {
+			logRepo.save(new Logs("Get", "getMembers()", false));
+			System.out.println("false");
+			return null;
+		}
+		
+	}
+
+	public Members getMember(String id) {
+		try {
+			Members m = memRepo.findById(id).get();
+			logRepo.save(new Logs("Get", "getMember()", true));
+			return m;
+		} catch(Exception e) {
+			logRepo.save(new Logs("Get", "getMember()", false));
+			System.out.println("해당하는 id가 없습니다.");
+			return null;
+		}
+		
+	}
+
+	public Members addMember(Members member) {
+		try {
+			Members m = memRepo.save(new Members(
+					member.getId(),
+					member.getPass(),
+					member.getName(),
+					new Date()
+					));
+			logRepo.save(new Logs("Post", "addMember()", true));
+			return m;
+		} catch(Exception e) {
+			logRepo.save(new Logs("Post", "addMember()", false));
+			System.out.println("false");
+			return null;
+		}
+		
+
+	}
+
+	public Members updateMember(Members member) {
+		try {
+			Members m = memRepo.findById(member.getId()).get();
+			m.setPass(member.getPass());
+			m.setName(member.getName());
+			m.setRegidate(new Date());
+			memRepo.save(m);
+			logRepo.save(new Logs("Put", "updateMember()", true));
+			return m;
+		} catch(Exception e) {
+			logRepo.save(new Logs("Put", "updateMember()", false));
+			System.out.println("false");
+			return null;
+		}
+		
+	}
+
+	public Members deleteMember(String id) {
+		try {
+			Members m = memRepo.findById(id).get();
+			memRepo.deleteById(id);
+			logRepo.save(new Logs("Delete", "deleteMember()", true));
+			return m;
+		} catch(Exception e) {
+			logRepo.save(new Logs("Delete", "deleteMember()", false));
+			System.out.println("false");
+			return null;
+		}
+		
+	}
+
+}

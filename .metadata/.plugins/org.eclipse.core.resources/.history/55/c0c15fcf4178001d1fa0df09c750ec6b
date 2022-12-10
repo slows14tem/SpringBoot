@@ -1,0 +1,13 @@
+package edu.pnu.service;
+
+import edu.pnu.domain.Reply;
+
+public class ReplyServiceImpl implements ReplyService {
+
+	@Override
+	public Reply getReplys(Reply reply) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

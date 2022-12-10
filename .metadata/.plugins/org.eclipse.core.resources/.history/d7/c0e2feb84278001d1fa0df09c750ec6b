@@ -1,0 +1,28 @@
+package edu.pnu.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.pnu.domain.Member;
+import edu.pnu.service.ReplyService;
+
+@Controller
+public class ReplyController {
+	
+	@Autowired
+	private ReplyService replyService;
+	
+	@RequestMapping("/getReplyList")
+	public String getReplyList(Model model) {
+		Member member = (Member)model.asMap().get("member");
+		//세션 "member"
+		if(member == null||member.getId()==null) {
+			return "redirect:login";
+		}
+		model.addAttribute("replyList", ReplyService.getReplyList());
+		return "getBoardList";
+	}
+
+}

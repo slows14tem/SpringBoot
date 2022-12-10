@@ -1,0 +1,22 @@
+package edu.pnu.domain;
+
+import java.util.Date;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
+public class Logs {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int seq;
+	private String method;
+	private String sql;
+	@Temporal(value = TemporalType.TIMESTAMP)
+	private Date regidate;
+	private boolean success;
+
+}

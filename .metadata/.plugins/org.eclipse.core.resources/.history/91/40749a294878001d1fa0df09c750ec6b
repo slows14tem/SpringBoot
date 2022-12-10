@@ -1,0 +1,37 @@
+package edu.pnu.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import edu.pnu.domain.Board;
+import edu.pnu.domain.Reply;
+import edu.pnu.persistence.ReplyRepository;
+
+@Service
+public class ReplyServiceImpl implements ReplyService {
+	
+	@Autowired
+	private ReplyRepository replyRepo;
+
+	@Override
+	public List<Reply> getReplyList(Reply reply) {
+		return (List<Reply>) replyRepo.findById(reply.getbSeq().getSeq()).get();
+	}
+	
+	public void insertReply(Reply reply) {
+		replyRepo.save(reply);
+	}
+	
+	public void updateReply(Reply reply) {
+		Reply findRe = replyRepo.findById(reply.getSeq()).get();
+		findRe.setContent(reply.getContent());
+		replyRepo.save(findRe);
+	}
+	
+	public void deleteReply(Reply reply) {
+		
+	}
+
+}

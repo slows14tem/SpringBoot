@@ -1,0 +1,32 @@
+package com.pnu.service;
+
+import java.util.List;
+
+import com.pnu.dao.BoardDAO;
+import com.pnu.domain.BoardVO;
+
+public class BoardService {
+	
+	BoardDAO dao = new BoardDAO();
+	
+	public List<BoardVO> getBoards(){
+		return dao.getBoards();
+	}
+	
+	public BoardVO getBoard(int seq) {
+		return dao.getBoard(seq);	
+	}
+	
+	public BoardVO addBoard(BoardVO boardVO) {
+		return dao.addBoard(boardVO);
+	}
+	
+	public BoardVO updateBoard(BoardVO boardVO) {
+		return dao.updateBoard(boardVO);
+	}
+	
+	public int deleteBoard(int seq) {
+		return dao.deleteBoard(seq);
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.pnu.domain;
+
+public class BoardVO {
+
+}

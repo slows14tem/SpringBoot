@@ -1,0 +1,17 @@
+package com.pnu.dao;
+
+import java.util.List;
+
+import com.pnu.domain.BoardVO;
+
+public interface BoardDAO {
+	public List<BoardVO> getBoards();
+	
+	public BoardVO getBoard(int seq);
+	
+	public BoardVO addBoard(BoardVO boardVO);
+	
+	public BoardVO updateBoard(BoardVO boardVO);
+	
+	public int deleteBoard(int seq);
+}

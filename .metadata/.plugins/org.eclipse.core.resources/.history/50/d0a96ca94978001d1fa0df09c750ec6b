@@ -1,0 +1,87 @@
+package edu.pnu.domain;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Reply {
+	
+	@Id@GeneratedValue
+	private Long seq;
+	
+	@ManyToOne
+	@JoinColumn(name="BOARD_SEQ", nullable=false)
+	private Board bSeq;
+	
+	private Member member;
+	@Column(insertable = false, updatable = false, columnDefinition = "date default current_timestamp")
+	private Date createDate;
+	private String content;
+	
+	public Reply() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Reply(Long seq, Board bSeq, Member member, Date createDate, String content) {
+		super();
+		this.seq = seq;
+		this.bSeq = bSeq;
+		this.member = member;
+		this.createDate = createDate;
+		this.content = content;
+	}
+
+	@Override
+	public String toString() {
+		return "Reply [seq=" + seq + ", bSeq=" + bSeq + ", member=" + member + ", createDate=" + createDate
+				+ ", content=" + content + "]";
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Long getSeq() {
+		return seq;
+	}
+
+	public void setSeq(Long seq) {
+		this.seq = seq;
+	}
+
+	public Board getbSeq() {
+		return bSeq;
+	}
+
+	public void setbSeq(Board bSeq) {
+		this.bSeq = bSeq;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	
+
+}

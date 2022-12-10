@@ -1,0 +1,24 @@
+package edu.pnu.logdao;
+
+import java.sql.DriverManager;
+
+public class LogDAOH2 implements LogDAO{
+	
+	public LogDAOH2() {
+		try {
+			Class.forName("org.h2.Driver");
+			con = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/mvcboard", "sa", "");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void addlog(String method, String sql, String success) {
+		
+		
+		
+	}
+	
+
+}

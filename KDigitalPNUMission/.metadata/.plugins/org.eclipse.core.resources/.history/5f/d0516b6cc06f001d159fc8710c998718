@@ -1,0 +1,16 @@
+package com.pnu.logdao;
+
+import java.io.File;
+import java.io.FileWriter;
+
+public class LogDAOFile implements LogDAO {
+
+	@Override
+	public void addlog(String method, String sql, boolean success) {
+		File file = new File("log.txt");
+		FileWriter fw = new FileWriter(file, true);
+		fw.write(method + "," + sql + "," + success + "\n");
+		
+	}
+
+}

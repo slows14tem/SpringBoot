@@ -1,0 +1,12 @@
+package edu.pnu.domain;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Member {
+	private String id;
+	private String password;
+	private String name;
+	private String role;
+
+}

@@ -1,0 +1,5 @@
+package com.pnu.dao;
+
+public class BoardDAO {
+	
+}

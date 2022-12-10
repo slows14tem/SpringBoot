@@ -1,0 +1,6 @@
+package edu.pnu.logdao;
+
+public interface LogDAO {
+	public void addlog();
+
+}

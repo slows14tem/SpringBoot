@@ -1,0 +1,51 @@
+package com.pnu.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pnu.domain.BoardVO;
+import com.pnu.service.BoardService;
+
+@RestController
+public class BoardController {
+	
+	BoardService bs = new BoardService();
+	
+	@GetMapping("/board")
+	public List<BoardVO> getBoards(){
+		return null;
+		
+	}
+	
+	@GetMapping("/board/{seq}")
+	public BoardVO getBoard(@PathVariable Integer sep) {
+		return null;
+		
+	}
+	
+	@PostMapping("/board")
+	public BoardVO addBoard(BoardVO boardVO) {
+		return boardVO;
+		
+	}
+	
+	@PutMapping("/board")
+	public BoardVO updateBoard(BoardVO boardVO) {
+		return boardVO;
+		
+	}
+	
+	@DeleteMapping("/board{seq}")
+	public BoardVO deleteBoard(@PathVariable Integer seq) {
+		return null;
+		
+	}
+	
+
+}

@@ -1,0 +1,53 @@
+package edu.pnu.service;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import edu.pnu.domain.Member;
+import edu.pnu.repository.MemberRepository;
+
+@Service
+public class MemberService {
+	
+	@Autowired
+	private MemberRepository memRepo;
+
+	public List<Member> getMembers(){
+		List<Member> list = memRepo.findAll();
+		return list;
+	}
+
+	public Member getMember(String id) {
+		Member m = memRepo.findById(id).get();
+		return m;
+	}
+
+	public Member addMember(Member member) {
+		Member m = memRepo.save(new Member(
+				member.getId(),
+				member.getPass(),
+				member.getName(),
+				member.getRegidate()
+				));
+		return m;
+
+	}
+
+	public Member updateMember(Member member) {
+		Member m = memRepo.findById(member.getId()).get();
+		m.setPass("1234Cc");
+		m.setName("NameCh");
+		m.setRegidate(new Date());
+		memRepo.save(m);
+		return m;
+
+	}
+
+	public Member deleteMember() {
+
+	}
+
+}

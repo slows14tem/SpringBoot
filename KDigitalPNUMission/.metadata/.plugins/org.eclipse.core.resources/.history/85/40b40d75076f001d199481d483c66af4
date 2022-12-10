@@ -1,0 +1,5 @@
+package edu.pnu.logdao;
+
+public class LogDAO {
+
+}

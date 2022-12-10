@@ -1,0 +1,6 @@
+Get,select * from board,true
+Get,select * from board where seq = 1,true
+Delete,delete from board where seq = 11,true
+Get,select * from board where seq = 11,false
+Get,select * from board,true
+Get,select * from board,true

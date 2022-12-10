@@ -1,0 +1,41 @@
+package com.pnu.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.pnu.dao.BoardDAO;
+import com.pnu.dao.BoardDAOH2;
+import com.pnu.domain.BoardVO;
+
+import edu.pnu.logdao.LogDAO;
+import edu.pnu.logdao.LogDAOH2;
+
+public class BoardService {
+	
+	BoardDAO dao = new BoardDAOH2();
+	LogDAO log = new LogDAOH2();
+	
+	public List<BoardVO> getBoards(){
+		Map<String, Object> map = dao.getBoards();
+		List<BoardVO> list = (List<BoardVO>) map.get("data");
+		if (list != null) 
+		return list;
+	}
+	
+	public BoardVO getBoard(int seq) {
+		return dao.getBoard(seq);	
+	}
+	
+	public BoardVO addBoard(BoardVO boardVO) {
+		return dao.addBoard(boardVO);
+	}
+	
+	public BoardVO updateBoard(BoardVO boardVO) {
+		return dao.updateBoard(boardVO);
+	}
+	
+	public int deleteBoard(int seq) {
+		return dao.deleteBoard(seq);
+	}
+
+}

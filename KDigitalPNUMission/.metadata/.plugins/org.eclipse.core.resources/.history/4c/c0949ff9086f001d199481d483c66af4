@@ -1,0 +1,9 @@
+package edu.pnu.logdao;
+
+import java.sql.Connection;
+
+public interface LogDAO {
+	
+	public void addlog(String method, String sql, boolean success);
+
+}
