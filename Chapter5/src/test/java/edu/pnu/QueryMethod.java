@@ -104,5 +104,3 @@ public class QueryMethod {
 		}
 	}
 }
-
-//쿼리문 where 조건절 like에 escape == 특수문자가 포함되었는지 검색할 때 사용

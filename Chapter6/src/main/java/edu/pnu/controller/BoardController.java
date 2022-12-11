@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+//Model == 스프링의 interface
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.pnu.domain.Board;
 import edu.pnu.service.BoardService;
@@ -20,22 +20,9 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@GetMapping("/test")
-	public @ResponseBody String test1() {
-		return "test1";
-	}
-//	@GetMapping("/test2")
-//	public String test2() {
-//		return "test2";
-//	}
-	
-	@GetMapping("/test2")
-	public void test2() {
-	}
-	
 //	@RequestMapping("/getBoardList")
 //	public String getBoardList(Model model) {
-//		//Model == 스프링의 interface
+//		
 //		List<Board> boardList = new ArrayList<Board>();
 //		
 //		for(int i=1;i<=10;i++) {
@@ -76,9 +63,11 @@ public class BoardController {
 	@RequestMapping("/getBoardList")
 	public String getBoardList(Model model, Board board) {
 		List<Board> boardList = boardService.getBoardList(board);
-
+		//게시글 목록 가져옴
 		model.addAttribute("boardList", boardList);
+		//검색결과 저장
 		return "getBoardList";
+		//문자열로 리턴해서 getBoardList.jsp로 이동
 	}
 	
 	@GetMapping("/insertBoard")

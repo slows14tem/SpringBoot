@@ -1,7 +1,5 @@
 package com.pnu.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,25 +15,25 @@ import com.pnu.domain.BoardVO;
 public class BoardDAOH2 implements BoardDAO {
 	//잘못 입력해서 데이터가 없는 예외의 경우 처리할 방법 생각
 	
-	private Connection con = null;
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
-	
-	public BoardDAOH2() {
-		try {
-			Class.forName("org.h2.Driver");
-			con = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/mvcboard", "sa", "");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
+//	private Connection con = null;
+//	@Autowired
 //	private JdbcTemplate jdbcTemplate;
 //	
-//	@Autowired
-//	public BoardDAOH2(JdbcTemplate jdbcTemplate) {
-//		this.jdbcTemplate = jdbcTemplate;
+//	public BoardDAOH2() {
+//		try {
+//			Class.forName("org.h2.Driver");
+//			con = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/mvcboard", "sa", "");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 //	}
+	
+	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public BoardDAOH2(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 
 	public Map<String, Object> getBoards() {
 		String sql = "select * from board";

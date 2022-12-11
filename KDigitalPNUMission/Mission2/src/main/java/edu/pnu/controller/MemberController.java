@@ -43,6 +43,7 @@ public class MemberController {
 	public MemberVO getMemberbyJSON(@RequestBody MemberVO member) {
 		log.info(String.format("MemberController - getMemberbyJSON(%s)", member));		
 		return memberService.getMember(member.getId());
+		//@RequestBody
 		//postman에서 body-row에서 json선택해서 json데이터 형식으로 입력
 		//{"id" : "1"}
 	}

@@ -1,0 +1,1 @@
+get,select * from member order by id asc,true

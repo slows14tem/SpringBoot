@@ -1,0 +1,12 @@
+1. JPA 프로젝트 
+	JPA 구현체로 하이버네이트 사용
+	persistence.xml -> hibernate.dialect 속성을 통해 사용하는 데이터베이스에 최적화된 sql생성가능
+	persistence.xml -> hibernate.hdm2ddl.auto=create => 테이블과 시퀀스를 자동으로 생성 
+	
+	
+2. 영속성 컨텐스트란 엔티티 객체를 관리하는 일종의 컨테이너이고 EntityManager를 통해서 접근 가능
+	Entity의 상태
+		비영속(new/transient): 영속성 컨텍스트와 전혀 관계가 없는 상태(객체만 생성된 단계)
+		영속(managed): 영속성 컨텍스트에 저장된 상태
+		준영속(detached): 영속성 컨텍스트에 저장되었다가 분리된 상태
+		삭제(removed): 삭제된 상태

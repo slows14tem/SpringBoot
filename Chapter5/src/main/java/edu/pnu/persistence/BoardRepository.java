@@ -9,17 +9,25 @@ import org.springframework.data.repository.query.Param;
 
 import edu.pnu.domain.Board;
 
+//기존의 DAO와 같은 개념
 public interface BoardRepository extends JpaRepository<Board, Long> {
 	
+	//인터페이스에서 별다른 구현 없이 CRUD 및 페이징 기능 등 이용가능(스프링이 자동으로 구현 객체 생성)
+	//EntityManagerFactory, EntityManager, Transaction 등 필요없어짐
+	
+	
+	//쿼리 메소드
 	List<Board> findByTitle(String searchKeyword);
 	List<Board> findByContentContaining(String searchKeyword);
 	List<Board> findByTitleContainingAndContentContaining(String title, String content);
 	List<Board> findByTitleContainingOrderBySeqDesc(String searchKeyword);
-	List<Board> findByTitleContaining(String searchKeyword, Pageable paging);
+	List<Board> findByTitleContaining(String searchKeyword, Pageable paging);	//pageable = 페이징 기능
 	List<Board> findByTitleContainingAndCntGreaterThan(String searchKeyword, Long cnt);
 	List<Board> findByCntGreaterThanEqualAndCntLessThanEqualOrderBySeqAsc(Long cnt, Long cnt2);
 	List<Board> findByTitleContainingOrContentContainingOrderBySeqDesc(String title, String content);
 	
+	
+	//@Query 어노테이션
 	@Query("select b from Board b where b.title like %?1% order by b.seq desc")
 	List<Board> queryAnnotationTest1(String searchKeyword);
 	

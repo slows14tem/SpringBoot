@@ -25,8 +25,8 @@ public class Board {
 	private Date createDate;
 	private Long cnt;
 	
-	@ManyToOne
-	@JoinColumn(name="MEMBER_ID", nullable = false)
+	@ManyToOne	//(N:1) 다대일 관계 설정
+	@JoinColumn(name="MEMBER_ID", nullable = false)	//외래키 매핑
 	private Member member;
 	//nullable=false => MEMBER_ID칼럼이 항상 참조값을 가진다는 의미
 	//outer join -> inner join으로 변경

@@ -14,12 +14,10 @@ import edu.pnu.domain.Board;
 public class JPAClientRollback {
 	
 	public static void test(EntityManagerFactory emf) {
-		//EntityManager 생성
+		
 		EntityManager em = emf.createEntityManager();
-		//Transaction 생성
 		EntityTransaction tx = em.getTransaction();
 		try {
-			//transaction 시작
 			tx.begin();
 			for (int i=0; i<10; i++) {
 				Board board = new Board();
@@ -28,11 +26,9 @@ public class JPAClientRollback {
 				board.setContent("JPA 글 등록 잘 되네요."+i);
 				board.setCreateDate(new Date());
 				board.setCnt(0L);
-				//글 등록
 				em.persist(board);
 			}
 
-			
 			//일부러 에러 발생시킴(동일한 Seq 입력)
 			//롤백이 실행되서 10번까지만 입력됨
 			Board board = new Board();
@@ -91,7 +87,7 @@ public class JPAClientRollback {
 			em.close();
 		}
 
-		
+		//롤백 테스트
 		test(emf);
 		emf.close();
 		

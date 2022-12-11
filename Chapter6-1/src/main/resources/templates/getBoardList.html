@@ -8,6 +8,7 @@
 <body th:align="center">
 	<h1>게시글 목록-thymeleaf</h1>
 	<h3><font color="red" th:text="${session['member'].name}"></font>님이 입장하였습니다.</h3>
+	<!-- ${session['member'].name} Model 객체에 저장된 세션 정보를 불러옴 -->
 	<a th:href="@{/logout}">LOG_OUT</a>
 	<a th:href="@{/update}">정보 변경</a>
 	<a th:href="@{/delete}">탈퇴</a>
@@ -21,7 +22,8 @@
 			<th bgcolor="orange" width="150">등록일</th>
 			<th bgcolor="orange" width="100">조회수</th>
 		</tr>
-		<tr th:each="board, state : ${boardList}">
+		<tr th:each="board, state : ${boardList}"> <!-- controller의 Model 객체에 저장된 boardList에 저장된 정보 호출 -->
+			<!-- th:each : 반복문 처리 -->
 			<td th:text="${state.count}">	<!-- db의 seq가 아니라 게시물 갯수를 카운트 -->
 			<td><a th:href="@{/getBoard(seq=${board.seq})}" th:text="${board.title}"></a></td>
 			<td th:text="${board.member.name}">

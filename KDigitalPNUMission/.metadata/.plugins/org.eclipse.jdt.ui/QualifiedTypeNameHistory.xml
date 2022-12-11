@@ -22,4 +22,5 @@
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
     <fullyQualifiedTypeName name="edu.pnu.domain.Logs"/>
+    <fullyQualifiedTypeName name="edu.pnu.dao.log.LogDaoH2Impl"/>
 </qualifiedTypeNameHistroy>

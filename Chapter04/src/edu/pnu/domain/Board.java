@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+//테이블과 매핑되는 자바 클래스
+//클래스 명과 필드명으로 데이터베이스에 테이블이 자동 생성
 public class Board {
 	//persistence.xml에 <class>edu.pnu.domain.Board</class> 추가
 	

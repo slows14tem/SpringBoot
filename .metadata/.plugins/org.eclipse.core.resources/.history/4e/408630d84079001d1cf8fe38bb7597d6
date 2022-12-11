@@ -1,0 +1,5 @@
+뷰어
+	pom.xml - JSTL, tomcat-embed-jasper 의존성 추가
+	application.properties - JSP ViewResolver Setting 필요
+		spring.mvc.view.prefix=/WEB-INF/board/
+		spring.mvc.view.suffix=.jsp

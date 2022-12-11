@@ -22,8 +22,11 @@ public class Member {
 	
 	@OneToMany(mappedBy = "member", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Board> boardList = new ArrayList<Board>();
-	//한명의 멤버가 여러개의 게시물을 작성할 수 있어서 onetomany/list 변수 사용
+	//일대다(1:N)의 관계, 한명의 멤버가 여러개의 게시물을 작성할 수 있어서 onetomany/list 변수 사용
 	//mappedby : 연관관계의 주인이 '아님'을 선언(외래키가 있는 곳이 주인으로 선정)
+	//fetchType EAGER : 연관엔티티를 동시에 조회
+	//			Lazy : 연관엔티티를 ㅅ실재로 사용할 때 조회
+	//cascade : 영속성 전이, 엔티티를 영속, 삭제상태로 만들 때 연관 엔티티도 같이 처리할 경우 영속성 전이를 사용하면 관리가 편함 
 	
 	public Member() {
 		// TODO Auto-generated constructor stub

@@ -31,6 +31,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 	
 	@Override
 	public Map<String, Object> getMembers() {
+		//LogDao를 위한 sql데이터를 추가로 리턴하기 위해 map 함수 사용
 		Statement st = null;
 		ResultSet rs = null;
 		String sqlString = "select * from member order by id asc";
@@ -47,8 +48,8 @@ public class MemberDaoH2Impl implements MemberInterface {
 				list.add(m);
 			}
 			Map<String, Object> map = new HashMap<>();
-			map.put("sql", sqlString);
-			map.put("data", list);
+			map.put("sql", sqlString);	//쿼리문 리턴
+			map.put("data", list);	//list data 리턴
 			return map;
 		} catch (Exception e) {
 			e.printStackTrace();

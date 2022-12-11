@@ -32,6 +32,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/member/{id}")
+	//@PathVariable => url 경로에 변수 입력
 	public MemberVO getMember(@PathVariable Integer id) {
 		log.info("getMember()");
 		return memberService.getMember(id);

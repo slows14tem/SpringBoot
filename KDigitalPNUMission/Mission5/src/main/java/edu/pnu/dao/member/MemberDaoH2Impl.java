@@ -51,9 +51,9 @@ public class MemberDaoH2Impl implements MemberInterface {
 			}
 			Map<String, Object> map = new HashMap<>();
 			//변경가능한 필드는 bean객체안에서 사용하지 않는다.(여러명이 접근했을 때 내가 원치않는
-			//변경이 다른사람에 의해서 발생가능하기 때문..
+			//변경이 다른사람에 의해서 발생가능하기 때문..)
 			//private String sql이 아니라 map을 사용한 이유 - 내가 사용한 sql문이 아니라 다른
-			//사람이 갑자기 변경한 sql이 실행될 수도 있다
+			//사람이 갑자기 변경한 sql이 MemberService로 전달 될 수도 있다.
 			map.put("sql", sqlString);
 			map.put("data", list);
 			return map;
@@ -131,8 +131,6 @@ public class MemberDaoH2Impl implements MemberInterface {
 		try {
 			String sqlString = String.format("insert into member (id,name,pass,regidate) values (%d,'%s','%s','%s')",
 				id, member.getName(), member.getPass(), new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime()));
-			//아이디 이외에 입력되지 않은 정보는 쿼리스트링으로 입력해야 함
-			//8080/member?pass=~~&name=~~
 			st = con.createStatement();
 
 			Map<String, Object> ret = new HashMap<>();

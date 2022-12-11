@@ -82,6 +82,7 @@ public class MemberDao {
 		return null;
 	}
 	
+	//id+1을 리턴해서 중복을 방지하기 위한 메소드
 	private int getNextId() {
 		Statement st = null;
 		ResultSet rs = null;

@@ -10,6 +10,7 @@ public class MemberService {
 
 	private List<MemberVO> list;
 	
+	//리스트 데이터 생성
 	public MemberService() {
 		list = new ArrayList<>();
 		for (int i = 1 ; i <= 5 ; i++) {
@@ -31,6 +32,8 @@ public class MemberService {
 	
 	public MemberVO addMember(MemberVO member) {
 		member.setId(list.size() + 1);
+		//입력되지 않은 정보는 쿼리스트링으로 입력
+		//8080/member?pass=~~&name=~~
 		member.setRegidate(new Date());
 		list.add(member);
 		return member;

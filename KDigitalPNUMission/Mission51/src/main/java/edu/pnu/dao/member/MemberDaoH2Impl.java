@@ -16,7 +16,7 @@ public class MemberDaoH2Impl implements MemberInterface {
 
 	private JdbcTemplate jdbcTemplate;
 	//db연결정보는 application.properties에 입력
-	//ORM(Object Relation Mapping
+	//ORM(Object Relation Mapping)
 	
 	@Autowired
 	public MemberDaoH2Impl(JdbcTemplate jdbcTemplate) {
@@ -29,8 +29,12 @@ public class MemberDaoH2Impl implements MemberInterface {
 		Map<String, Object> ret = new HashMap<>();
 		ret.put("sql", sqlString);
 		try {
-			List<MemberVO> list = jdbcTemplate.query(sqlString, new BeanPropertyRowMapper<MemberVO>(MemberVO.class));
-																//RowMapper : 쿼리 결과를 객체로 변환
+			List<MemberVO> list = jdbcTemplate.query(sqlString, 
+					new BeanPropertyRowMapper<MemberVO>(MemberVO.class));
+			//RowMapper : ResultSet 에서 값을 추출하여 원하는 객체로 변환
+			//BeanPropertyRowMapper : ResultSet -> Bean 으로 변환
+			//ColumnMapRowMapper : ResultSet -> Map 으로 변환
+
 			ret.put("data", list);
 		} catch (Exception e) {
 			ret.put("data", null);
@@ -44,7 +48,10 @@ public class MemberDaoH2Impl implements MemberInterface {
 		String sqlString = String.format("select * from member where id=%d", id);
 		ret.put("sql", sqlString);
 		try {
-			MemberVO member = jdbcTemplate.queryForObject(sqlString, new BeanPropertyRowMapper<MemberVO>(MemberVO.class));
+			MemberVO member = jdbcTemplate.queryForObject(sqlString, 
+					new BeanPropertyRowMapper<MemberVO>(MemberVO.class));
+			//queryForObject => 쿼리 수행결과가 하나일 때 => 객체로 반환
+			//query          => 쿼리 수행결과가 여러개일 때 => 리스트로 반환
 			ret.put("data", member);
 		} catch (Exception e) {
 			ret.put("data", null);

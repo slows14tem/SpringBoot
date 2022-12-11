@@ -32,11 +32,11 @@ public class JPAClientJPQL {
 			em.persist(board);
 			
 			String jpql = "select b from Board b order by b.seq desc";
+			//sql과 거의 유사, 테이블이 아니라 엔티티를 검색함
 			List<Board> boardList = em.createQuery(jpql, Board.class).getResultList();
 			for (Board brd : boardList) {
 				System.out.println("--->" + brd.toString());
 			}
-			//transaction commit == transaction 종료?
 			tx.commit();
 			
 		} catch (Exception e) {
