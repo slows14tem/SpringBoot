@@ -1,9 +1,0 @@
-package edu.pnu.service;
-
-import org.springframework.web.bind.annotation.GetMapping;
-
-public interface MemberService {
-
-	void loginView();
-
-}

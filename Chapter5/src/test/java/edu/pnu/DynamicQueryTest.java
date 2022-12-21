@@ -3,7 +3,7 @@ package edu.pnu;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+//import javax.persistence.EntityManager;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -27,8 +27,8 @@ public class DynamicQueryTest {
 	@Autowired
 	private DynamicBoardRepository boardRepo;
 	
-	@Autowired
-	EntityManager em;
+//	@Autowired
+//	EntityManager em;
 
 	@Test
 	public void testDynamicQuery() {
@@ -54,15 +54,15 @@ public class DynamicQueryTest {
 	}
 	
 	//@Test
-	public void testDynamicQuery1() {
-		JPAQueryFactory query = new JPAQueryFactory(em);
-		QBoard b = QBoard.board;
-		
-		List<Board> list = query.selectFrom(b).where(b.cnt.lt(50)).orderBy(b.seq.asc()).fetch();
-		
-		for (Board bb:list) {
-			System.out.println("--->" + bb);
-		}
-	}
+//	public void testDynamicQuery1() {
+//		JPAQueryFactory query = new JPAQueryFactory(em);
+//		QBoard b = QBoard.board;
+//		
+//		List<Board> list = query.selectFrom(b).where(b.cnt.lt(50)).orderBy(b.seq.asc()).fetch();
+//		
+//		for (Board bb:list) {
+//			System.out.println("--->" + bb);
+//		}
+//	}
 
 }

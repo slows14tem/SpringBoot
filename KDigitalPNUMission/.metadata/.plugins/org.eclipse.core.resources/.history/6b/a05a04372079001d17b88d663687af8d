@@ -1,5 +1,0 @@
-1. Mission4에서 어노테이션(IoC 컨테이너)을 이용한 DI 방식으로 변경한 버전
-
-DI(의존성 종속, Dependency Injection)란, 클래스간의 의존관계를 스프링 컨테이너가 자동으로 연결해주는 것
-
-@Autowired란, 스프링 DI(Dependency Injection)에서 사용되는 어노테이션 

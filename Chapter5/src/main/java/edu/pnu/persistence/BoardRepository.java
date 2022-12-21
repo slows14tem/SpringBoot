@@ -51,6 +51,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 	//create_Date...네이티브쿼리라서 컬럼명을 데이터베이스와 똑같이 줘야한다.(생성될 때 규칙에 의해 변경되기 때문)
 	List<Object[]> queryAnnotationTest4(String searchKeyword);
 	
+	
 	@Query("select b from Board b")
 	List<Board> queryAnnotationTest5(Pageable paging);
 	

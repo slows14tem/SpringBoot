@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import edu.pnu.domain.Logs;
 import edu.pnu.domain.Members;
-import edu.pnu.repository.LogRepository;
-import edu.pnu.repository.MemberRepository;
+import edu.pnu.persistence.LogRepository;
+import edu.pnu.persistence.MemberRepository;
 
 @Service
 public class MemberService {

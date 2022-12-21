@@ -1,0 +1,25 @@
+1. Mission4에서 어노테이션(IoC 컨테이너)을 이용한 DI 방식으로 변경한 버전
+
+DI(의존성 종속, Dependency Injection)란, 클래스간의 의존관계를 스프링 컨테이너가 자동으로 연결해주는 것
+
+스프링에서 빈 인스턴스가 생성된 이후 @Autowired를 설정한 메서드가 자동으로 호출되고, 인스턴스가 자동으로 주입 
+	즉, 해당 변수 및 메서드에 스프링이 관리하는 Bean을 자동으로 매핑해주는 개념
+
+@Autowired 는 변수, Setter메서드, 생성자, 일반 메서드에 적용이 가능하며 
+	<property>, <constructor-arg>태그와 동일한 역할
+	
+https://life-with-coding.tistory.com/433
+
+DI(Dependency Injection)의존성 주입
+	DI란 외부에서 두 객체 간의 관계를 결정해주는 디자인 패턴으로, 인터페이스를 사이에 둬서 
+	클래스 레벨에서는 의존관계가 고정되지 않도록 하고 런타임 시에 관계를 동적으로 주입하여
+	유연성을 확보하고 결합도를 낮출 수 있게 해준다. (객체간의 결합력이 강하기 대문에 객체를
+	바꿔 끼우는 과정에서 많은 수정이 필요하기 때문)
+	스프링 IoC컨테이너에 들어있는 Bean객체만 사용가능
+	
+	@Autowired란, 스프링 DI(Dependency Injection)에 사용되는 어노테이션 
+		1. 생성자에 붙이기(Constructor Injection)
+			스프링 레퍼런스에서 권장(필수적으로 사용해야하는 레퍼런스 없이는 해당 인스턴스를 
+			만들수 없도록 강제할 수 있기 때문)
+		2. Setter에 붙이기(Setter Injection)
+		3. 필드에 붙이기(Field Injection)

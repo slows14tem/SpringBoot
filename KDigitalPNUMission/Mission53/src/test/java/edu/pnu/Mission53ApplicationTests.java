@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import edu.pnu.domain.Members;
-import edu.pnu.repository.MemberRepository;
+import edu.pnu.persistence.MemberRepository;
 
 @SpringBootTest
 class Mission53ApplicationTests {

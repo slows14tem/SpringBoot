@@ -1,2 +1,0 @@
-1. Mission5에서 JDBC Connection 방식을 JdbcTemplate으로 변경한 버전
-부트스트링이 자동으로 만들어 줌. 

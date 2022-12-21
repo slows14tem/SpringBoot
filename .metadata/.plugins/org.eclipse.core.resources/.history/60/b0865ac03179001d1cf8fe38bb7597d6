@@ -1,5 +1,0 @@
-. 스프링부터에서 제공하는 스프링 데이터 JPA
-	
-	JpaRepository
-	쿼리 메소드 
-	@Query 어노테이션
