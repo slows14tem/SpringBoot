@@ -33,6 +33,7 @@ class Chapter5ApplicationTests {
 //		boardRepo.save(board);
 //	}
 //	void testGetBoard() {
+		//findById -> Optional 타입의 객체가 리턴되어 영속성 컨텍스트에 올라옴, get()을 이용하여 영속성 컨텍스트에 저장된 Board 객체를 받아옴
 //		Board board = boardRepo.findById(2L).get();
 //		System.out.println(board.toString());
 //	}
@@ -46,6 +47,7 @@ class Chapter5ApplicationTests {
 //		}
 		Random random = new Random();
 		for(int i=1; i<=100; i++) {
+			//jpaRepository에서는 엔티티를 영속성 컨텍스트에 저장하기 위해서 persist()가 아니라 save()를 
 			boardRepo.save(new Board(
 					"title"+i,
 					"writer"+i,
