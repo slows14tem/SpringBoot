@@ -1,5 +1,6 @@
 1. JPA 프로젝트 (Without Spring)
 	JPA 구현체로 하이버네이트 사용
+	JPA는 /META-INF/persistence.xml파일을 가장 먼저 로딩한 후, 영속성 유닛 정보를 이용
 	persistence.xml -> hibernate.dialect 속성을 통해 사용하는 데이터베이스에 최적화된 sql생성가능
 	persistence.xml -> hibernate.hdm2ddl.auto=create => 테이블과 시퀀스를 자동으로 생성 
 	
