@@ -32,7 +32,7 @@ public class JPAClientJPQL {
 			em.persist(board);
 			
 			String jpql = "select b from Board b order by b.seq desc";
-			//sql과 거의 유사, 테이블이 아니라 엔티티를 검색함
+			//sql과 거의 유사, 테이블이 아니라 엔티티를 검색함(엔티티 이름과 변수명을 사용해야함)
 			List<Board> boardList = em.createQuery(jpql, Board.class).getResultList();
 			for (Board brd : boardList) {
 				System.out.println("--->" + brd.toString());
@@ -50,3 +50,5 @@ public class JPAClientJPQL {
 	}
 
 }
+//JPQL로 검색기능을 수행하면 쿼리를 실행하기 전에 SQL 저장소에 저장된 모든 SQL구문들을 데이터베이스에 전송한다.
+//그래야 영속성 컨텍스트에 없는 데이터를 데이터베이스로부터 조회하여 영속성 컨텍스트에 등록할 수 있기 때문이다.
