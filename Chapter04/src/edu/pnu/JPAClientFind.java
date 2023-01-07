@@ -20,6 +20,7 @@ public class JPAClientFind {
 		EntityTransaction tx = em.getTransaction();
 	
 		//====검색====
+		//검색은 트랜잭션과 관련이 없기 때문에 관련 소스는 생략가능
 		try {
 			Board searchBoard = em.find(Board.class, 1l);
 			//find를 통해서도 엔티티를 영속상태로 만들 수 있다.(조회목표가 없을 경우 새로운 엔티티 객체 생성하여 영속성컨텍스트에 저장)
